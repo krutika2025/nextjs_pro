@@ -7,9 +7,31 @@ import Main from './components/Main';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap
-import product from './components/product';
-// Sample products with categories
 
+// Sample products with categories
+const products = [
+  {
+    name: 'Electronics',
+    items: [
+      { name: 'Laptop', description: 'High-performance laptop' },
+      { name: 'Smartphone', description: 'Latest smartphone model' },
+    ],
+  },
+  {
+    name: 'Clothing',
+    items: [
+      { name: 'T-Shirt', description: 'Comfortable cotton t-shirt' },
+      { name: 'Jeans', description: 'Stylish denim jeans' },
+    ],
+  },
+  {
+    name: 'Groceries',
+    items: [
+      { name: 'Apple', description: 'Fresh apples' },
+      { name: 'Milk', description: 'Organic milk' },
+    ],
+  },
+];
 
 export default function RootLayout({ children }) {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -26,7 +48,7 @@ export default function RootLayout({ children }) {
           <div className="row">
             {/* Sidebar */}
             <div className="col-md-3 col-sm-12">
-              <Sidebar product={product} onSelectProduct={handleSelectProduct} />
+              <Sidebar products={products} onSelectProduct={handleSelectProduct} />
             </div>
 
             {/* Main content */}
